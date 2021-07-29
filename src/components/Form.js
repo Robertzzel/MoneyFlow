@@ -7,7 +7,7 @@ export default class Form extends React.Component{
         super(props)
         this.nume = "";
         this.pret = "";
-        this.data = "";
+        this.data = new Date();
     }
 
     componentDidMount(){
@@ -16,7 +16,6 @@ export default class Form extends React.Component{
 
     submit=(e)=>{
         e.preventDefault();
-        console.log(this.nume)
         if(this.nume === ""){
             alert("Introduceti numele")
         }else if(this.pret === ""){
@@ -29,7 +28,7 @@ export default class Form extends React.Component{
                 body: JSON.stringify({
                     nume: this.nume,
                     pret: this.pret,
-                    data: this.data
+                    data: `${this.data.getDate()}-${this.data.getMonth()}-${this.data.getFullYear()}`
                 })
             }
             fetch('http://localhost:8000/api/adauga-produs/',requestOptions).then((res)=>console.log(res.json()))
