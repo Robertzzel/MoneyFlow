@@ -8,10 +8,12 @@ export default class Form extends React.Component{
         this.nume = "";
         this.pret = "";
         this.data = new Date();
+        
     }
 
     componentDidMount(){
-        document.getElementById('data_produsului').valueAsDate = new Date();
+        document.getElementById('data_produsului').valueAsDate = new Date(); //seteaza data default ca azi
+        this.data = `${this.data.getFullYear()}-${this.data.getMonth()}-${this.data.getDate()}` //cu new Date() genereaza data ciudata , aici o procesez
     }
 
     submit=(e)=>{
@@ -28,7 +30,7 @@ export default class Form extends React.Component{
                 body: JSON.stringify({
                     nume: this.nume,
                     pret: this.pret,
-                    data: `${this.data.getDate()}-${this.data.getMonth()}-${this.data.getFullYear()}`
+                    data: this.data
                 })
             }
             fetch('http://localhost:8000/api/adauga-produs/',requestOptions).then((res)=>console.log(res.json()))

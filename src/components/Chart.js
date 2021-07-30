@@ -27,12 +27,18 @@ export default class Chart extends React.Component{
     }
 
     componentDidMount(){
-        this.getData()
+
+        if(this.props.vizualizare === 'saptamanal'){
+            this.getData('http://localhost:8000/api/produse-saptamanale/')
+        }else{
+            this.getData('http://localhost:8000/api/produse-lunare/')
+        }
+        
     }
 
 
-    async getData(){
-        await fetch('http://localhost:8000/api/produse/')
+    async getData(url){
+        await fetch(url)
         .then((res)=>res.json())
         .then(rez=>{
             let listaLabels = []
@@ -45,7 +51,6 @@ export default class Chart extends React.Component{
                 labels: listaLabels,
                 data: listaData
             })
-            console.log(this.state)
             
         })
     }

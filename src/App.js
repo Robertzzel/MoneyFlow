@@ -10,22 +10,29 @@ export default class App extends React.Component{
     super(props)
     this.state={
       adaugare: false,
+      vizualizare: "saptamanal",
     }
   }
 
   AfisareCharSauForm=()=>{
     if(this.state.adaugare){
       return <Form/>
+    }else if(this.state.vizualizare==='saptamanal'){
+      return <Chart key="1" vizualizare='saptamanal'/>
+      
+    }else if(this.state.vizualizare==='lunar'){
+      return <Chart key="2" vizualizare='lunar'/>
     }
-    return <Chart/>
+      
   }
 
   render(){
     return(
       <>
-        <Header incarcaFormSauChart={(adaugare)=>{
+        <Header incarcaFormSauChart={(adaugare,vizualizare)=>{
           this.setState({
             adaugare: adaugare,
+            vizualizare: vizualizare,
             })}}/>
         <this.AfisareCharSauForm/>
       </>
