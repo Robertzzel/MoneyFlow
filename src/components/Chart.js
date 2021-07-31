@@ -29,9 +29,9 @@ export default class Chart extends React.Component{
     componentDidMount(){
 
         if(this.props.vizualizare === 'saptamanal'){
-            this.getData('http://localhost:8000/api/produse-saptamanale/')
+            this.getData('http://localhost:8000/api/produse-ultima_saptamana/')
         }else{
-            this.getData('http://localhost:8000/api/produse-lunare/')
+            this.getData('http://localhost:8000/api/produse-ultima_luna/')
         }
         
     }

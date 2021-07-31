@@ -35,6 +35,9 @@ export default class Form extends React.Component{
             }
             fetch('http://localhost:8000/api/adauga-produs/',requestOptions).then((res)=>console.log(res.json()))
         }
+        document.getElementById("numele_produsului").value=""
+        document.getElementById("pretul_produsului").value=""
+        document.getElementById('data_produsului').valueAsDate = new Date();
     }
 
     render(){
