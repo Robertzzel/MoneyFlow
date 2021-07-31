@@ -1,7 +1,8 @@
 import './App.css';
 import React from 'react'
 import Header from './components/Header'
-import Chart from './components/Chart'
+import BarChart from './components/BarChart';
+import PieChart from './components/PieChart'
 import Form from './components/Form'
 
 export default class App extends React.Component{
@@ -18,10 +19,13 @@ export default class App extends React.Component{
     if(this.state.adaugare){
       return <Form/>
     }else if(this.state.vizualizare==='saptamanal'){
-      return <Chart key="1" vizualizare='saptamanal'/>
+      return <PieChart key="1" url={'http://localhost:8000/api/produse-ultima_saptamana/'}/>
       
     }else if(this.state.vizualizare==='lunar'){
-      return <Chart key="2" vizualizare='lunar'/>
+      return <PieChart key="2" url={'http://localhost:8000/api/produse-ultima_luna/'}/>
+
+    }else if(this.state.vizualizare.includes('luni')){
+      return <PieChart key={this.state.vizualizare.split("_")[0]} url={'http://localhost:8000/api/produse-luna/'+this.state.vizualizare.split("_")[0]+"/"}/>
     }
       
   }

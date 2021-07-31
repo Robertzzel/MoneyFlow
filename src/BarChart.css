@@ -1,0 +1,9 @@
+canvas{
+    width: 600px !important;
+    height: 600px !important;
+    margin: 0 auto;
+}
+
+.bar-div{
+    margin-top: 150px;
+}

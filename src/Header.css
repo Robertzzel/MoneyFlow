@@ -6,3 +6,27 @@ a{
     color: #727370 !important;
     font-family: 'Courier New', monospace;
 }
+
+/* ascunde sgatila la type number inout */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+#cate_luni{
+    width: 25px;
+    height: 30px;
+    background-color: inherit;
+    border-width: 1px;
+}
+
+.underlined:hover{
+  text-decoration: underline;
+}

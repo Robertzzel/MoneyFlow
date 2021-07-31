@@ -3,6 +3,11 @@ import '../Header.css'
 
 export default class Header extends React.Component{
 
+    constructor(props){
+        super(props)
+        this.luni = 0
+    }
+
     incarcaFormSauChart=(e,adaugare,vizualizare)=>{
         e.preventDefault();
         this.props.incarcaFormSauChart(adaugare,vizualizare)
@@ -18,6 +23,11 @@ export default class Header extends React.Component{
                     <div className="col text-center">
                         <a onClick={ e =>{this.incarcaFormSauChart(e,false,'lunar')}} href=""><h3>ULTIMA<br/>LUNA</h3></a>
                     </div>
+
+                    <div className="col text-center">
+                        <a onClick={ e =>{this.incarcaFormSauChart(e,false,`${this.luni}_luni`)}} href=""><h3>ACUM<br/><span id="input_text"><input onChange={(e)=>{this.luni=e.target.value}} type="number" id="cate_luni"/> LUNI</span></h3></a>
+                    </div>
+
                     <div className="col text-center">
                         <a onClick={ e =>{this.incarcaFormSauChart(e,true)}} href=""><h3>ADAUGA</h3></a>
                     </div>

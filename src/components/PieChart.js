@@ -1,8 +1,8 @@
 import React from "react";
-import '../Chart.css'
+import '../PieChart.css'
 import { Pie } from 'react-chartjs-2'
 
-export default class Chart extends React.Component{
+export default class PieChart extends React.Component{
 
     constructor(props){
         super(props)
@@ -27,12 +27,7 @@ export default class Chart extends React.Component{
     }
 
     componentDidMount(){
-
-        if(this.props.vizualizare === 'saptamanal'){
-            this.getData('http://localhost:8000/api/produse-ultima_saptamana/')
-        }else{
-            this.getData('http://localhost:8000/api/produse-ultima_luna/')
-        }
+        this.getData(this.props.url)
         
     }
 
