@@ -8,9 +8,9 @@ export default class Header extends React.Component{
         this.luni = 0
     }
 
-    incarcaFormSauChart=(e,adaugare,vizualizare)=>{
+    incarcaFormSauChart=(e,vizualizare)=>{
         e.preventDefault();
-        this.props.incarcaFormSauChart(adaugare,vizualizare)
+        this.props.incarcaFormSauChart(vizualizare)
     }
     
     render(){
@@ -18,18 +18,23 @@ export default class Header extends React.Component{
             <div className="container-fluid header">
                 <div className="row">
                     <div className="col text-center">
-                        <a onClick={ e =>{this.incarcaFormSauChart(e,false,'saptamanal')}} href=""><h3>ULTIMA<br/>SAPTAMANA</h3></a>
-                    </div>
-                    <div className="col text-center">
-                        <a onClick={ e =>{this.incarcaFormSauChart(e,false,'lunar')}} href=""><h3>ULTIMA<br/>LUNA</h3></a>
+                        <a className='link_header' onClick={ e =>{this.incarcaFormSauChart(e,'saptamanal')}} href=""><h3>ULTIMA<br/>SAPTAMANA</h3></a>
                     </div>
 
                     <div className="col text-center">
-                        <a onClick={ e =>{this.incarcaFormSauChart(e,false,`${this.luni}_luni`)}} href=""><h3>ACUM<br/><span id="input_text"><input onChange={(e)=>{this.luni=e.target.value}} type="number" id="cate_luni"/> LUNI</span></h3></a>
+                        <a className='link_header' onClick={ e =>{this.incarcaFormSauChart(e,'lunar')}} href=""><h3>ULTIMA<br/>LUNA</h3></a>
                     </div>
 
                     <div className="col text-center">
-                        <a onClick={ e =>{this.incarcaFormSauChart(e,true)}} href=""><h3>ADAUGA</h3></a>
+                        <a className='link_header' onClick={ e =>{this.incarcaFormSauChart(e,`${this.luni}_luni`)}} href=""><h3>ACUM<br/><span id="input_text"><input onChange={(e)=>{this.luni=e.target.value}} type="number" id="cate_luni"/> LUNI</span></h3></a>
+                    </div>
+
+                    <div className="col text-center">
+                        <a className='link_header' onClick={ e =>{this.incarcaFormSauChart(e,'toate')}} href=""><h3>TOATE<br/>PRODUSELE</h3></a>
+                    </div>
+
+                    <div className="col text-center">
+                        <a className='link_header' onClick={ e =>{this.incarcaFormSauChart(e,'form')}} href=""><h3>ADAUGA</h3></a>
                     </div>
                 </div>
             </div>

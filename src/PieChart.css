@@ -7,3 +7,8 @@ canvas{
 .pie-div{
     margin-top: 150px;
 }
+
+#mesaj_fara_date{
+    margin: inherit;
+    text-align: center;
+}

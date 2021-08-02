@@ -54,6 +54,7 @@ export default class PieChart extends React.Component{
 
         return(
             <div className="pie-div">
+                {this.state.data.length !== 0 && this.state.labels.length !== 0?
                 <Pie
                 width={100}
                 height={100}
@@ -66,7 +67,20 @@ export default class PieChart extends React.Component{
                             backgroundColor: this.getArrayWithColors(this.state.data.length),
                         }
                     ]
-                }}/>
+                }}/>:
+                <Pie
+                width={100}
+                height={100}
+                 data={{
+                    labels: ['NaN'],
+                    datasets: [
+                        {
+                            label:"valori",
+                            data: [1],
+                        }
+                    ]
+                }}/> 
+                }
             </div>
         )
     }
