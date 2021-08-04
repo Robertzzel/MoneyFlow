@@ -13,7 +13,7 @@ export default class Form extends React.Component{
 
     componentDidMount(){
         document.getElementById('data_produsului').valueAsDate = new Date(); //seteaza data default ca azi
-        this.data = `${this.data.getFullYear()}-${this.data.getMonth()}-${this.data.getDate()}` //cu new Date() genereaza data ciudata , aici o procesez
+        this.data = `${this.data.getFullYear()}-${this.data.getMonth()+1}-${this.data.getDate()}` //cu new Date() genereaza data ciudata , aici o procesez
     }
 
     submit=(e)=>{
@@ -50,7 +50,7 @@ export default class Form extends React.Component{
                     </div>
                     <div className="form-group">
                         <label>Pretul produsului</label>
-                        <input onChange={(e)=>{this.pret=e.target.value}} type="number" className="form-control" id="pretul_produsului" placeholder="Pretul produsului"/>
+                        <input onChange={(e)=>{this.pret=e.target.value}} type="number" step="0.01" className="form-control" id="pretul_produsului" placeholder="Pretul produsului"/>
                     </div>
                     <div className="form-group">
                         <label>Data</label>
